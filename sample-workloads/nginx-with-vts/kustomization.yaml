@@ -1,0 +1,23 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+commonLabels:
+  app: nginx-vts
+
+configMapGenerator:
+  - name: nginx-vts-config
+    options:
+      disableNameSuffixHash: true
+    files:
+      - nginx.conf=./files/nginx-vts.conf
+
+resources:
+  #  - nginx-namespace.yaml
+  - nginx-service.yaml
+  - nginx-deployment.yaml
+
+images:
+  - name: nginx-vts
+    newName: k3d-Test-registry:5000/nginx-vts
+    newTag: v0.2.2

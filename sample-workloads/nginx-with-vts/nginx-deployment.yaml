@@ -1,0 +1,30 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-vts
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx-vts
+  template:
+    metadata:
+      labels:
+        app: nginx-vts
+    spec:
+      containers:
+        - name: nginx-vts
+          image: nginx-vts:v0.2.2
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: nginx-vts-config
+              mountPath: /etc/nginx/nginx.conf
+              subPath: nginx.conf
+      volumes:
+        - name: nginx-vts-config
+          configMap:
+            name: nginx-vts-config
+            items:
+              - { key: nginx.conf, path: nginx.conf }
