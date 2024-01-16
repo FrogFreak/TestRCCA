@@ -1,0 +1,104 @@
+\documentclass[
+    11pt,
+    english,
+    a4paper
+]{article}
+
+% Encoding, etc
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english=british]{csquotes}
+\usepackage{caption}
+\usepackage{ragged2e}
+\justifying
+%\captionsetup[figure]{labelfont={color=black,bf}}
+\usepackage{float}
+\usepackage{tabularx, colortbl}
+\usepackage[table]{xcolor}
+\definecolor{lightgray}{gray}{0.9}
+\let\oldtabularx\tabularx
+\renewcommand*{\tabularx}{\rowcolors{1}{}{lightgray}\oldtabularx}
+\usepackage{pdfpages}
+\usepackage{indentfirst}
+\frenchspacing
+\usepackage[super]{nth}
+\captionsetup{
+  justification=raggedright,
+  labelfont={color=Blue,bf},
+  font=small}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{
+    colorlinks=false,
+    linkcolor=black,
+    filecolor=white,      
+    urlcolor=blue,
+}
+
+
+\usepackage{mathptmx}
+\usepackage{enumitem}
+\setlist[itemize]{label=\large{\textbullet}}
+\SetLabelAlign{center}{\strut\smash{\parbox[t]\labelwidth{\centering#1}}}
+
+
+
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{lipsum}
+\usepackage{blindtext}
+
+
+
+% This document specific styles
+\usepackage{title}
+\usepackage{styles/layout}
+
+% WATERMARK
+\usepackage{draftwatermark}
+\SetWatermarkText{DRAFT}
+\SetWatermarkScale{0.8}
+\SetWatermarkColor[gray]{0.93}
+\SetWatermarkFontSize{4cm}
+
+
+
+% STAR OF DOCUMENT
+\begin{document}
+\pagestyle{empty}
+\marginlayout
+\maketitle
+
+\setlength\columnsep{10pt}
+\begin{multicols}{2}
+
+{
+\bfseries
+\noindent \emph{Abstract}---\input{sections/abstract.tex}
+}
+
+%\vspace{-2em}
+\section{Introduction}
+\input{sections/introduction.tex}
+
+\section{Instrumentation of microservices systems}
+\input{sections/instrumentation.tex}
+
+\section{Futur Work}
+\input{sections/futur_work.tex}
+
+\begin{thebibliography}{1}
+\bibitem{RCA}
+J. Soldani and A. Brogi, "Anomaly detection and failure root cause analysis in (micro) service-based cloud applications: A survey", ACM Comput. Surveys, vol. 55, no. 3, pp. 1-39, Feb. 2022.
+
+\bibitem{Features}
+Jianyu Miao, Lingfeng Niu, "A Survey on Feature Selection, Procedia Computer Science", Volume 91, 2016, Pages 919-926, ISSN 1877-0509
+
+\bibitem{Github}
+Yanis Mammar, "Practical examples of telemetry-based RCA inside kubernetes clusters", \href{https://github.com/FrogFreak/TestRCCA}{https://github.com/FrogFreak/TestRCCA}
+
+\end{thebibliography}
+
+\end{multicols}
+
+\end{document}

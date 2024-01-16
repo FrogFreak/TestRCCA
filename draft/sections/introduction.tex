@@ -1,0 +1,16 @@
+
+Root cause analysis (RCA), \emph{i.e.}, identifying the highest-level factor that caused a nonconformance, has become an increasingly critical challenge for layered and large-scale microservices systems. RCA typically relies on the collection of telemetry data sets, the selection of relevant features, and their correlation analysis with the underlying root causes of failures. 
+
+The layered architecture of microservices is convenient for separating concerns \cite{RCA} and organising the cause-and-effect chain hierarchically, but as a result, it involves many components at different levels of granularity. However, most RCA approaches establish rules for a single type of telemetry data, and can only support expert RCA at either application-level or service-level. Mainly because RCA rules tend to be fairly unique and often require tuning for each system; they generally cannot be adapted to multi-granular models.
+
+
+
+In this paper, we investigate the feasibility of a new RCA framework that provides (1) instrumentation guidelines to meet microservices requirements, (2) hierarchical feature selection in microservices telemetry data, (3) root cause analysis at multiple levels of granularity, and (4) rules to suggest generic and controlled root cause corrective actions (RCCA).
+
+
+
+\subsection{Related Work}
+
+Root cause analysis is a well-researched process for finding the causes of events and effectively correcting them \cite{RCA}. RCA has been an industry requirement for many years. However, current approaches cannot scale to multiple levels of granularity. Although there have been attempts to combine multiple logs, traces and metrics to improve the efficiency and accuracy of RCA.
+
+Feature selection, is a rich field that that offers reduction techniques for large telemetry datasets by eliminating irrelevant and redundant features. Additionally, selection can be structured hierarchically, in order to more accurately identify key failures and root causes in layered microservices systems.

@@ -1,0 +1,7 @@
+Telemetry provides the necessary bridge between data and actionable insight.
+
+It refers to a software framework that provides simultaneously (1) instrumentation, \emph{i.e.}, measurement capabilities of a service's performance, in order to make a system observable, (2) the systematic transmission of logs, traces and metrics for collection, and (3) the presentation of relevant information for analysis. The instrumentation of microservices systems must allow data to be collected at different levels, including the application level, network level, service level, etc.
+
+\subsection{Limitations}
+
+Instrumentation is limited by execution coverage. If an event is not occurring, then no data can be collected at that point. Types of instrumentation often require the use of a library or dedicated code within system components to emit metrics or logs. This can introduce overhead and dramatically increase execution time. In application such as cloud and multi-tenant environments, security and regulations are also concerns when instrumenting services. In addition, as telemetry systems scale to cover tens of data centre regions and hundreds of thousands of servers and network devices, they inevitably suffer from the increasing volume of data.

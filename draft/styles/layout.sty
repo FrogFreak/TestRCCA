@@ -1,0 +1,55 @@
+\newlength{\hscale}
+\newlength{\vscale}
+\setlength{\hscale}{1mm}
+\setlength{\vscale}{1mm}
+
+\usepackage[
+	paperwidth=210\hscale,
+	paperheight=297\vscale,
+]{geometry}
+\usepackage{titlesec}
+
+\newcommand{\widelayout}{%
+	\newgeometry{
+		top=27.4\vscale,
+		bottom=27.4\vscale,
+		inner=24.8\hscale,
+		outer=24.8\hscale,
+		marginparsep=0mm,
+		marginparwidth=0mm,
+	}%
+}
+
+\newcommand{\nolayout}{%
+	\newgeometry{
+  top=0cm,
+  bottom=0cm,
+  left=0cm,
+  right=0cm,
+  marginparsep=0cm,
+  marginparwidth=0cm
+}
+}
+
+\newcommand{\marginlayout}{%
+	\newgeometry{
+		top=27.4\vscale,
+		bottom=27.4\vscale,
+		inner=12.8\hscale,
+        left=16\hscale,
+        right=16\hscale,
+		textwidth=184\hscale,
+		marginparsep=12.2\hscale,
+		marginparwidth=47.7\hscale,
+	}%
+}
+
+\renewcommand{\thesection}{\Roman{section}}
+\titleformat{\section}
+  {\normalfont\scshape\filcenter}{\thesection.}{1em}{}
+
+\renewcommand{\thesubsection}{\Alph{subsection}}
+\titleformat{\subsection}{\itshape}{\thesubsection.}{0.5em}{}
+
+\setlength{\columnsep}{2em}
+
